@@ -5,24 +5,35 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '/dist'), // eslint-disable-line no-undef
-    filename: 'index.bundle.js',
+    filename: 'index.bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
+        use: [
+          {loader: 'style-loader', options: {sourceMap: true}},
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true
+            }
+          },
+          {loader: 'postcss-loader'}, // See PostCSS Config
+          {loader: 'sass-loader', options: {sourceMap: true}}
+        ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
+      template: './src/index.html'
+    })
+  ]
 };
