@@ -11,5 +11,5 @@ Activate EditorConfig, ESLint, Stylelint and Prettier in your Editor / IDE.
 ```
 npm start
 
-npm build
+npm run build
 ```
