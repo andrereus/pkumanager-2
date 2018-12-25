@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '/dist'), // eslint-disable-line no-undef
         filename: 'index.bundle.js'
     },
     module: {
@@ -12,16 +12,17 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: [
+                    'babel-loader',
+                    'eslint-loader'
+                ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader"
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
                 ]
             }
         ]
@@ -31,4 +32,4 @@ module.exports = {
             template: './src/index.html'
         })
     ]
-}
+};
