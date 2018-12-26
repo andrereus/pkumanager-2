@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, '/dist'), // eslint-disable-line no-undef
-    filename: 'index.bundle.js'
+    filename: 'index.js'
   },
   module: {
     rules: [
@@ -17,7 +18,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {loader: 'style-loader', options: {sourceMap: true}},
+          {loader: MiniCssExtractPlugin.loader},
           {
             loader: 'css-loader',
             options: {
@@ -34,6 +35,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
     })
   ]
 };
