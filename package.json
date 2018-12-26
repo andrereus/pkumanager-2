@@ -2,13 +2,13 @@
   "name": "pkumanager-2",
   "version": "1.0.0",
   "description": "PKU Manager 2",
-  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
   "author": "Andre Reus",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "browserslist": [
     "last 8 versions",
     "not < 0.2%"
