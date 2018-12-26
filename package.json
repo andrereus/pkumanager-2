@@ -1,14 +1,13 @@
 {
-  "name": "pkumanager-2",
+  "name": "react-webpack-boilerplate",
   "version": "1.0.0",
-  "description": "PKU Manager 2",
+  "description": "React Webpack Boilerplate",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
   "author": "Andre Reus",
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "ISC",
   "browserslist": [
     "last 8 versions",
     "not < 0.2%"
